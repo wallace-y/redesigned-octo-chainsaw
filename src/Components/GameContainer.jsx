@@ -79,7 +79,7 @@ function GameContainer() {
         <Word guess={guess[4]} currentWord={currentWord} />
         <Word guess={guess[5]} currentWord={currentWord} />
       </div>
-        <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
+      <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
       <div className="container text-center">
         <div className="row">
           <div className="col">
@@ -93,6 +93,10 @@ function GameContainer() {
             </button>
           </div>
         </div>
+      </div>
+      <div className="my-1">
+        Designed for personal use as a portfolio project and has no affiliation
+        with the official Wordle game.{" "}
       </div>
     </div>
   );
