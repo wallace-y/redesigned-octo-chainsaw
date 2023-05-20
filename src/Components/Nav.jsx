@@ -3,8 +3,8 @@ import Title from "./Title";
 
 function Nav() {
   return (
-    <nav class="navbar bg-body-tertiary mx-3">
-      <div class="container"></div>
+    <nav className="navbar bg-body-tertiary mx-3">
+      <div className="container"></div>
       <Title />
       <HowTo />
     </nav>
