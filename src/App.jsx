@@ -1,11 +1,14 @@
+import Nav from "./Components/Nav";
+import GameContainer from "./Components/GameContainer";
+import "./App.css";
 
 function App() {
-
   return (
     <>
-      <h1>Code here dum dum</h1>
+      <Nav />
+      <GameContainer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
