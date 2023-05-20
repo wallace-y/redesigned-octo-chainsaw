@@ -25,40 +25,38 @@ function Guess(props) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="container m-5">
-        <div className="mb-3 row">
-          <label htmlFor="guess" className="col col-form-label">
-            Your guess
-          </label>
-          <div className="col">
-            <input
-              type="text"
-              className="form-control"
-              id="guess"
-              value={newGuess}
-              onChange={(event) => setNewGuess(event.target.value)}
-              minLength={5}
-              maxLength={5}
-            />
-          </div>
+    <form onSubmit={handleSubmit} className="container">
+      <div className="mb-3 row">
+        <label htmlFor="guess" className="col col-form-label">
+          Your guess
+        </label>
+        <div className="col">
+          <input
+            type="text"
+            className="form-control"
+            id="guess"
+            value={newGuess}
+            onChange={(event) => setNewGuess(event.target.value)}
+            minLength={5}
+            maxLength={5}
+          />
         </div>
-        {/* This is an alert which shows on game load as default */}
-        <div
-          className="alert alert-success alert-dismissible fade show"
-          role="alert"
-        >
-          <strong>Welcome to a Wordle clone!</strong> Please click the start
-          button to generate your word.
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      </form>
-    </div>
+      </div>
+      {/* This is an alert which shows on game load as default */}
+      <div
+        className="alert alert-success alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Welcome to a Wordle clone!</strong> Please click the start
+        button to generate your word.
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+    </form>
   );
 }
 

@@ -8,7 +8,7 @@ function Word(props) {
     if (guess) {
       return (
         <div className="container text-center">
-          <div className="row">
+          <div className="row text-center">
             {guess.split("").map((char, index) => {
               let status;
               if (char.toUpperCase() === currentWord[index].toUpperCase()) {
