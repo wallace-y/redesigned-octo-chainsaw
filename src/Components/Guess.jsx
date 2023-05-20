@@ -43,6 +43,20 @@ function Guess(props) {
             />
           </div>
         </div>
+        {/* This is an alert which shows on game load as default */}
+        <div
+          className="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Welcome to a Wordle clone!</strong> Please click the start
+          button to generate your word.
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
       </form>
     </div>
   );
