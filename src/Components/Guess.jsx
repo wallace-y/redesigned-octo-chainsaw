@@ -2,9 +2,8 @@ import { useState } from "react";
 
 function Guess(props) {
   const [newGuess, setNewGuess] = useState("");
-  const currentWord = props.currentWord;
   const guess = props.guess;
-  const length = guess.length;
+  const currentWord = props.currentWord;
   const setGuess = props.setGuess;
 
   function handleSubmit(event) {
@@ -15,10 +14,10 @@ function Guess(props) {
         return [...currentList, newGuess];
       });
       setNewGuess("");
-      console.log(currentWord);
-      console.log(newGuess);
       if (currentWord === newGuess) {
         alert("You got it!");
+      } else if (guess.length === 5) {
+        alert(`Close. The answer was ${currentWord}`);
       }
     }
 

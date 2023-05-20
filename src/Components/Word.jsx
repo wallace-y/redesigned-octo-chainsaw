@@ -13,7 +13,6 @@ function Word(props) {
               let status;
               if (char.toUpperCase() === currentWord[index].toUpperCase()) {
                 // if exactly equal
-
                 status = "Green";
               } else if (currentWord.includes(char)) {
                 // if in the word but not at the right index

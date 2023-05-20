@@ -61,11 +61,12 @@ function GameContainer() {
   function startGame() {
     let ranNum = Math.floor(Math.random() * wordList.length);
     setCurrentWord(wordList[ranNum]);
-    console.log(currentWord);
   }
 
   function resetGame() {
-    //TBC
+    setGuess([]);
+    let ranNum = Math.floor(Math.random() * wordList.length);
+    setCurrentWord(wordList[ranNum]);
   }
 
   return (
