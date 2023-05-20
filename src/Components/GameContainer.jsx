@@ -61,21 +61,35 @@ function GameContainer() {
   function startGame() {
     let ranNum = Math.floor(Math.random() * wordList.length);
     setCurrentWord(wordList[ranNum]);
+    console.log(currentWord);
+  }
+
+  function resetGame() {
+    //TBC
   }
 
   return (
     <>
-      <Word guess={guess[0]} />
-      <Word guess={guess[1]} />
-      <Word guess={guess[2]} />
-      <Word guess={guess[3]} />
-      <Word guess={guess[4]} />
-      <Word guess={guess[5]} />
-      <Guess setGuess={setGuess} />
-      <div className="container-fluid">
-        <button className="btn btn-dark" onClick={startGame}>
-          Start
-        </button>
+      <Word guess={guess[0]} currentWord={currentWord} />
+      <Word guess={guess[1]} currentWord={currentWord} />
+      <Word guess={guess[2]} currentWord={currentWord} />
+      <Word guess={guess[3]} currentWord={currentWord} />
+      <Word guess={guess[4]} currentWord={currentWord} />
+      <Word guess={guess[5]} currentWord={currentWord} />
+      <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <button className="btn btn-dark btn-block" onClick={startGame}>
+              Start
+            </button>
+          </div>
+          <div className="col-md-6">
+            <button className="btn btn-dark btn-block" onClick={resetGame}>
+              Reset
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

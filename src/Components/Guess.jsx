@@ -2,15 +2,20 @@ import { useState } from "react";
 
 function Guess(props) {
   const [newGuess, setNewGuess] = useState("");
+  const currentWord = props.currentWord;
 
   const setGuess = props.setGuess;
 
   function handleSubmit(event) {
-    setGuess((currentList) => {
-      return [...currentList, newGuess];
-    });
-    setNewGuess("");
-
+    if (!currentWord) {
+      alert("Please press start.");
+    } else {
+      setGuess((currentList) => {
+        return [...currentList, newGuess];
+      });
+      setNewGuess("");
+      console.log(currentWord);
+    }
     event.preventDefault();
   }
 
@@ -28,6 +33,7 @@ function Guess(props) {
               id="guess"
               value={newGuess}
               onChange={(event) => setNewGuess(event.target.value)}
+              minLength={5}
               maxLength={5}
             />
           </div>
