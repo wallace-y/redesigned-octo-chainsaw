@@ -4,6 +4,7 @@ import { useState } from "react";
 import Disclaimer from "./Disclaimer";
 import WordContainer from "./WordContainer";
 import Banner from "./Banner";
+import StartGame from "./StartGame";
 
 function GameContainer() {
   const wordList = [
@@ -79,26 +80,14 @@ function GameContainer() {
       <Banner />
       <WordContainer guess={guess} currentWord={currentWord} />
       <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
-
-      <div className="container text-center mb-1">
-        <div className="row">
-          {!gameStarted && (
-            <div className="col">
-              <button className="btn btn-dark" onClick={startGame}>
-                Start
-              </button>
-            </div>
-          )}
-          {gameStarted && (
-            <div className="col">
-              <button className="btn btn-dark" onClick={resetGame}>
-                Reset
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
-
+      <StartGame
+        wordList={wordList}
+        setCurrentWord={setCurrentWord}
+        setGameStarted={setGameStarted}
+        setGuess={setGuess}
+        guess={guess}
+        gameStarted={gameStarted}
+      />
       <Disclaimer />
     </div>
   );
