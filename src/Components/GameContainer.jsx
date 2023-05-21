@@ -1,6 +1,7 @@
 import Word from "./Word";
 import Guess from "./Guess";
 import { useState } from "react";
+import Disclaimer from "./Disclaimer";
 
 function GameContainer() {
   const wordList = [
@@ -57,10 +58,12 @@ function GameContainer() {
   ];
   const [currentWord, setCurrentWord] = useState("");
   const [guess, setGuess] = useState([]);
+  const [gameStarted, setGameStarted] = useState(false);
 
   function startGame() {
     let ranNum = Math.floor(Math.random() * wordList.length);
     setCurrentWord(wordList[ranNum]);
+    setGameStarted(true);
   }
 
   function resetGame() {
@@ -95,24 +98,26 @@ function GameContainer() {
       </div>
       <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
 
-      <div className="container text-center">
+      <div className="container text-center mb-1">
         <div className="row">
-          <div className="col">
-            <button className="btn btn-dark" onClick={startGame}>
-              Start
-            </button>
-          </div>
-          <div className="col">
-            <button className="btn btn-dark" onClick={resetGame}>
-              Reset
-            </button>
-          </div>
+          {!gameStarted && (
+            <div className="col">
+              <button className="btn btn-dark" onClick={startGame}>
+                Start
+              </button>
+            </div>
+          )}
+          {gameStarted && (
+            <div className="col">
+              <button className="btn btn-dark" onClick={resetGame}>
+                Reset
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <div className="my-1">
-        Designed for personal use as a portfolio project and has no affiliation
-        with the official Wordle game.{" "}
-      </div>
+
+      <Disclaimer />
     </div>
   );
 }
