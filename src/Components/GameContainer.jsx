@@ -2,6 +2,7 @@ import Word from "./Word";
 import Guess from "./Guess";
 import { useState } from "react";
 import Disclaimer from "./Disclaimer";
+import WordContainer from "./WordContainer";
 
 function GameContainer() {
   const wordList = [
@@ -88,14 +89,7 @@ function GameContainer() {
           aria-label="Close"
         ></button>
       </div>
-      <div className="container mb-3 text-center">
-        <Word guess={guess[0]} currentWord={currentWord} />
-        <Word guess={guess[1]} currentWord={currentWord} />
-        <Word guess={guess[2]} currentWord={currentWord} />
-        <Word guess={guess[3]} currentWord={currentWord} />
-        <Word guess={guess[4]} currentWord={currentWord} />
-        <Word guess={guess[5]} currentWord={currentWord} />
-      </div>
+      <WordContainer guess={guess} currentWord={currentWord} />
       <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
 
       <div className="container text-center mb-1">
