@@ -4,6 +4,10 @@ function StartGame(props) {
   const setGameStarted = props.setGameStarted;
   const setGuess = props.setGuess;
   const gameStarted = props.gameStarted;
+  const winAlert = props.winAlert;
+  const setWinAlert = props.setWinAlert;
+  const lostAlert = props.lostAlert;
+  const setLostAlert = props.setLostAlert;
 
   function startGame() {
     let ranNum = Math.floor(Math.random() * wordList.length);
@@ -15,6 +19,8 @@ function StartGame(props) {
     setGuess([]);
     let ranNum = Math.floor(Math.random() * wordList.length);
     setCurrentWord(wordList[ranNum]);
+    setWinAlert(false);
+    setLostAlert(false);
   }
 
   return (

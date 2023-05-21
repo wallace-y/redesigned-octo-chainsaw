@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Alert from "./Alert";
 import WinAlert from "./WinAlert";
+import LostAlert from "./LostAlert";
 
 function Guess(props) {
   const [newGuess, setNewGuess] = useState("");
@@ -8,7 +9,10 @@ function Guess(props) {
   const currentWord = props.currentWord;
   const setGuess = props.setGuess;
   const [startAlert, setStartAlert] = useState(false);
-  const [winAlert, setWinAlert] = useState(false);
+  const winAlert = props.winAlert;
+  const setWinAlert = props.setWinAlert;
+  const lostAlert = props.lostAlert;
+  const setLostAlert = props.setLostAlert;
 
   function handleSubmit(event) {
     if (!currentWord) {
@@ -17,11 +21,11 @@ function Guess(props) {
       setStartAlert(false);
       setGuess((currentList) => {
         return [...currentList, newGuess];
-      });
+      })
       if (currentWord === newGuess) {
         setWinAlert(true);
       } else if (guess.length === 5) {
-        alert(`Close. The answer was ${currentWord}`);
+        setLostAlert(true);
       }
       setNewGuess("");
     }
@@ -52,6 +56,8 @@ function Guess(props) {
       {startAlert && <Alert />}
       {/* Alert when the game has been won */}
       {winAlert && <WinAlert />}
+      {/* Alert when the game has been lost */}
+      {lostAlert && <LostAlert currentWord={currentWord} />}
     </form>
   );
 }

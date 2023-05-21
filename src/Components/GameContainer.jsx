@@ -62,14 +62,27 @@ function GameContainer() {
   const [currentWord, setCurrentWord] = useState("");
   const [guess, setGuess] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
-
+  const [winAlert, setWinAlert] = useState(false);
+  const [lostAlert, setLostAlert] = useState(false);
 
   return (
     <div className="container text-center">
       <Banner />
       <WordContainer guess={guess} currentWord={currentWord} />
-      <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
+      <Guess
+        winAlert={winAlert}
+        setWinAlert={setWinAlert}
+        lostAlert={lostAlert}
+        setLostAlert={setLostAlert}
+        guess={guess}
+        currentWord={currentWord}
+        setGuess={setGuess}
+      />
       <StartGame
+        winAlert={winAlert}
+        setWinAlert={setWinAlert}
+        lostAlert={lostAlert}
+        setLostAlert={setLostAlert}
         wordList={wordList}
         setCurrentWord={setCurrentWord}
         setGameStarted={setGameStarted}
