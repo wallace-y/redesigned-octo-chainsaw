@@ -3,6 +3,7 @@ import Guess from "./Guess";
 import { useState } from "react";
 import Disclaimer from "./Disclaimer";
 import WordContainer from "./WordContainer";
+import Banner from "./Banner";
 
 function GameContainer() {
   const wordList = [
@@ -75,20 +76,7 @@ function GameContainer() {
 
   return (
     <div className="container text-center">
-      {/* This is an alert which shows on game load as default */}
-      <div
-        className="alert alert-success alert-dismissible fade show"
-        role="alert"
-      >
-        <strong>Welcome to a Wordle clone!</strong> <br />
-        Please click the start button below to generate your word.
-        <button
-          type="button"
-          className="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
+      <Banner />
       <WordContainer guess={guess} currentWord={currentWord} />
       <Guess guess={guess} currentWord={currentWord} setGuess={setGuess} />
 
