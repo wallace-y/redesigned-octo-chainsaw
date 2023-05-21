@@ -1,9 +1,9 @@
 .wordle-letter {
     margin: 0;
     padding: 0;
-    width: 75px ;
-    height: 75px;
-    font-size: 2rem;
+    width: 50px ;
+    height: 50px;
+    font-size: 1rem;
     text-transform: uppercase;
     aspect-ratio: 1/1;
   }
