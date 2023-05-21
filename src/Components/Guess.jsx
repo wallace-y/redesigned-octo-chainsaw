@@ -17,11 +17,11 @@ function Guess(props) {
   function handleSubmit(event) {
     if (!currentWord) {
       setStartAlert(true);
-    } else {
+    } else if (currentWord) {
       setStartAlert(false);
       setGuess((currentList) => {
         return [...currentList, newGuess];
-      })
+      });
       if (currentWord === newGuess) {
         setWinAlert(true);
       } else if (guess.length === 5) {
