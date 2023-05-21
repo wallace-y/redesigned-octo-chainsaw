@@ -1,15 +1,18 @@
 import { useState } from "react";
+import Alert from "./Alert";
 
 function Guess(props) {
   const [newGuess, setNewGuess] = useState("");
   const guess = props.guess;
   const currentWord = props.currentWord;
   const setGuess = props.setGuess;
+  const [startAlert, setStartAlert] = useState(false);
 
   function handleSubmit(event) {
     if (!currentWord) {
-      alert("Please press start.");
+      setStartAlert(true);
     } else {
+      setStartAlert(false);
       setGuess((currentList) => {
         return [...currentList, newGuess];
       });
@@ -42,20 +45,9 @@ function Guess(props) {
           />
         </div>
       </div>
-      {/* This is an alert which shows on game load as default */}
-      <div
-        className="alert alert-success alert-dismissible fade show"
-        role="alert"
-      >
-        <strong>Welcome to a Wordle clone!</strong> Please click the start
-        button to generate your word.
-        <button
-          type="button"
-          className="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
+
+      {/* Alert when the start button has not been pressed */}
+      {startAlert && <Alert />}
     </form>
   );
 }
