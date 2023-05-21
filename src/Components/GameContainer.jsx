@@ -63,17 +63,6 @@ function GameContainer() {
   const [guess, setGuess] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
 
-  function startGame() {
-    let ranNum = Math.floor(Math.random() * wordList.length);
-    setCurrentWord(wordList[ranNum]);
-    setGameStarted(true);
-  }
-
-  function resetGame() {
-    setGuess([]);
-    let ranNum = Math.floor(Math.random() * wordList.length);
-    setCurrentWord(wordList[ranNum]);
-  }
 
   return (
     <div className="container text-center">
